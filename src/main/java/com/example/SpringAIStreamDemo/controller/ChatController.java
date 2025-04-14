@@ -1,7 +1,10 @@
 package com.example.SpringAIStreamDemo.controller;
 
+import javax.sound.midi.SysexMessage;
+
 import org.slf4j.Logger;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Flux;
 
-@RequestMapping("/ai")
+@RequestMapping("/api")
 @RestController
 @CrossOrigin
 public class ChatController {
@@ -35,6 +38,8 @@ public class ChatController {
 		return chatClient.prompt().user(message).stream().content();
 				
 	}
+		
+	
 	@GetMapping("/test")
 	public String test() {
 		return "Hello World";
